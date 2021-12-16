@@ -18,13 +18,14 @@ const orderRoutes = require("./routes/order")
 
 
 // DB Connection
-mongoose.connect(process.env.DATABASE, 
+const DB ="mongodb+srv://MVirat:1234@cluster0.tbqo5.mongodb.net/ecomdb?retryWrites=true&w=majority"
+
+mongoose.connect(DB, 
  {useNewUrlParser: true, useUnifiedTopology: true,
-  useCreateIndex: true})
+  useCreateIndex: true,useFindAndModify:false})
     .then(()=>{
     console.log("DB CONNECTED");
 });
-
 // middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
